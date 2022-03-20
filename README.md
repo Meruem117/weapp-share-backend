@@ -1,2 +1,3 @@
-# miniprogram-backend
-Backend for miniprogram demo
+# Weapp Share Backend
+
+Backend for a demo miniprogram
