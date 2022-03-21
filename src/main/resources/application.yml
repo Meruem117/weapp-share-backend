@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/share?serverTimezone=GMT%2B8
+    username: root
+    password: abc123
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.niit.share.entity
+  configuration:
+    map-underscore-to-camel-case: true
