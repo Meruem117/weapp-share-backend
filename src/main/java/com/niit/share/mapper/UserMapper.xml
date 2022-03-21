@@ -3,6 +3,6 @@
 <mapper namespace="com.niit.share.mapper.UserMapper">
     <select id="findAll" resultType="User">
         SELECT *
-        FROM user
+        FROM share.user
     </select>
 </mapper>
