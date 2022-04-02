@@ -1,7 +1,7 @@
 package com.niit.share.controller;
 
-import com.niit.share.entity.User;
-import com.niit.share.service.UserService;
+import com.niit.share.entity.Comment;
+import com.niit.share.service.CommentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,13 +10,13 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/comment")
+public class CommentController {
     @Resource
-    private UserService userService;
+    private CommentService commentService;
 
     @GetMapping("/all")
-    public List<User> getAll() {
-        return userService.getAll();
+    public List<Comment> getAll() {
+        return commentService.getAll();
     }
 }
