@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class PageSearchRequest extends PageRequest {
+public class CommentPageRequest extends PageRequest {
+    private Integer userId;
     private String key;
 }

@@ -9,5 +9,5 @@ import java.util.List;
 public interface CommentMapper {
     List<Comment> getAll();
 
-    List<Comment> getSearchPages(String key);
+    List<Comment> getPages(Integer userId, String key);
 }

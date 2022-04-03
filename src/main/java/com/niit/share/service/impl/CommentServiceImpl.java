@@ -19,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getSearchPages(String key) {
-        return commentMapper.getSearchPages(key);
+    public List<Comment> getPages(Integer userId, String key) {
+        return commentMapper.getPages(userId, key);
     }
 }
