@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CommentService {
     List<Comment> getAll();
+
+    List<Comment> getSearchPages(String key);
 }

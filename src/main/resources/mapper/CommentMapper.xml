@@ -5,4 +5,9 @@
         SELECT *
         FROM share.comment
     </select>
+    <select id="getSearchPages" resultType="Comment">
+        SELECT *
+        FROM share.comment
+        WHERE content LIKE concat('%', #{key}, '%')
+    </select>
 </mapper>

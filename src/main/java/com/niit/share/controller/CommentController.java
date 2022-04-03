@@ -2,6 +2,7 @@ package com.niit.share.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.niit.share.base.request.PageSearchRequest;
 import com.niit.share.base.response.BaseResponse;
 import com.niit.share.base.response.PageResponse;
 import com.niit.share.entity.Comment;
@@ -21,9 +22,14 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/all")
-    public BaseResponse<PageResponse<Comment>> getAll() {
-        PageHelper.startPage(1, 2);
-        List<Comment> list = commentService.getAll();
+    public BaseResponse<List<Comment>> getAll() {
+        return ResUtils.success(commentService.getAll());
+    }
+
+    @GetMapping("/list")
+    public BaseResponse<PageResponse<Comment>> getPages(PageSearchRequest pageSearchRequest) {
+        PageHelper.startPage(pageSearchRequest.getPage(), pageSearchRequest.getSize());
+        List<Comment> list = commentService.getSearchPages(pageSearchRequest.getKey());
         Long total = ((Page) list).getTotal();
         return ResUtils.success(new PageResponse<>(list, total));
     }

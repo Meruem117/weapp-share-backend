@@ -17,4 +17,9 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getAll() {
         return commentMapper.getAll();
     }
+
+    @Override
+    public List<Comment> getSearchPages(String key) {
+        return commentMapper.getSearchPages(key);
+    }
 }
