@@ -14,4 +14,5 @@ public class Comment implements Serializable {
     private Integer commentId;
     private String content;
     private Integer likes;
+    private String time;
 }

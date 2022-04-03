@@ -13,4 +13,5 @@ public class User implements Serializable {
     private Integer gender;
     private String sign;
     private String location;
+    private String createTime;
 }
