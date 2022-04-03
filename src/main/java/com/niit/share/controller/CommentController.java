@@ -27,7 +27,7 @@ public class CommentController {
     }
 
     @GetMapping("/list")
-    public BaseResponse<PageResponse<Comment>> getPages(PageSearchRequest pageSearchRequest) {
+    public BaseResponse<PageResponse<Comment>> getSearchPages(PageSearchRequest pageSearchRequest) {
         PageHelper.startPage(pageSearchRequest.getPage(), pageSearchRequest.getSize());
         List<Comment> list = commentService.getSearchPages(pageSearchRequest.getKey());
         Long total = ((Page) list).getTotal();

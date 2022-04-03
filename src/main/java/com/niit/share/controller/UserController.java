@@ -21,4 +21,9 @@ public class UserController {
     public BaseResponse<List<User>> getAll() {
         return ResUtils.success(userService.getAll());
     }
+
+    @GetMapping("/get")
+    public BaseResponse<User> getUserById(Integer id) {
+        return ResUtils.success(userService.getUserById(id));
+    }
 }
