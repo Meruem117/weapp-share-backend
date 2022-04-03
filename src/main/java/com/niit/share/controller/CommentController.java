@@ -2,7 +2,7 @@ package com.niit.share.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.niit.share.base.request.CommentPageRequest;
+import com.niit.share.base.request.PageRequest;
 import com.niit.share.base.response.BaseResponse;
 import com.niit.share.base.response.PageResponse;
 import com.niit.share.entity.Comment;
@@ -27,9 +27,22 @@ public class CommentController {
     }
 
     @GetMapping("/list")
-    public BaseResponse<PageResponse<Comment>> getPages(CommentPageRequest commentPageRequest) {
-        PageHelper.startPage(commentPageRequest.getPage(), commentPageRequest.getSize());
-        List<Comment> list = commentService.getPages(commentPageRequest.getUserId(), commentPageRequest.getKey());
+    public BaseResponse<PageResponse<Comment>> getPages(Integer userId, String key, PageRequest pageRequest) {
+        PageHelper.startPage(pageRequest.getPage(), pageRequest.getSize());
+        List<Comment> list = commentService.getPages(userId, key);
+        Long total = ((Page) list).getTotal();
+        return ResUtils.success(new PageResponse<>(list, total));
+    }
+
+    @GetMapping("/get")
+    public BaseResponse<Comment> getCommentById(Integer id) {
+        return ResUtils.success(commentService.getCommentById(id));
+    }
+
+    @GetMapping("/comment")
+    public BaseResponse<PageResponse<Comment>> getCommentListById(Integer id, PageRequest pageRequest) {
+        PageHelper.startPage(pageRequest.getPage(), pageRequest.getSize());
+        List<Comment> list = commentService.getCommentListById(id);
         Long total = ((Page) list).getTotal();
         return ResUtils.success(new PageResponse<>(list, total));
     }

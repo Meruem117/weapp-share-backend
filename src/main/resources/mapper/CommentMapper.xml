@@ -3,12 +3,22 @@
 <mapper namespace="com.niit.share.mapper.CommentMapper">
     <select id="getAll" resultType="Comment">
         SELECT *
-        FROM share.comment
+        FROM comment
     </select>
     <select id="getPages" resultType="Comment">
         SELECT *
-        FROM share.comment
+        FROM comment
         WHERE (user_id = #{userId} OR #{userId} = 0)
           AND content LIKE concat('%', #{key}, '%')
+    </select>
+    <select id="getCommentById" resultType="Comment">
+        SELECT *
+        FROM comment
+        WHERE id = #{id}
+    </select>
+    <select id="getCommentListById" resultType="Comment">
+        SELECT *
+        FROM comment
+        WHERE comment_id = #{id}
     </select>
 </mapper>

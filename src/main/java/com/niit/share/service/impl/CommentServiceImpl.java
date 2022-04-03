@@ -22,4 +22,14 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getPages(Integer userId, String key) {
         return commentMapper.getPages(userId, key);
     }
+
+    @Override
+    public Comment getCommentById(Integer id) {
+        return commentMapper.getCommentById(id);
+    }
+
+    @Override
+    public List<Comment> getCommentListById(Integer id) {
+        return commentMapper.getCommentListById(id);
+    }
 }
