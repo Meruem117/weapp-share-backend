@@ -1,4 +1,4 @@
-package com.niit.share.base;
+package com.niit.share.base.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

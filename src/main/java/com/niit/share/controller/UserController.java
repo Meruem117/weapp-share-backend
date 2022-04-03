@@ -1,6 +1,6 @@
 package com.niit.share.controller;
 
-import com.niit.share.base.BaseResponse;
+import com.niit.share.base.response.BaseResponse;
 import com.niit.share.entity.User;
 import com.niit.share.service.UserService;
 import com.niit.share.utils.ResUtils;

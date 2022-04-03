@@ -1,6 +1,6 @@
 package com.niit.share.utils;
 
-import com.niit.share.base.BaseResponse;
+import com.niit.share.base.response.BaseResponse;
 
 public class ResUtils {
     /**

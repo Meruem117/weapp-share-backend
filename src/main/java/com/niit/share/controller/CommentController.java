@@ -1,6 +1,9 @@
 package com.niit.share.controller;
 
-import com.niit.share.base.BaseResponse;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.niit.share.base.response.BaseResponse;
+import com.niit.share.base.response.PageResponse;
 import com.niit.share.entity.Comment;
 import com.niit.share.service.CommentService;
 import com.niit.share.utils.ResUtils;
@@ -18,7 +21,10 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/all")
-    public BaseResponse<List<Comment>> getAll() {
-        return ResUtils.success(commentService.getAll());
+    public BaseResponse<PageResponse<Comment>> getAll() {
+        PageHelper.startPage(1, 2);
+        List<Comment> list = commentService.getAll();
+        Long total = ((Page) list).getTotal();
+        return ResUtils.success(new PageResponse<>(list, total));
     }
 }
