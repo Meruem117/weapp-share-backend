@@ -38,10 +38,13 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Integer addComment(Comment comment) {
         User user = userMapper.getUserById(comment.getUserId());
+        Comment originComment = commentMapper.getCommentById(comment.getCommentId());
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String datetime = df.format(new Date());
         comment.setUserName(user.getName());
         comment.setAvatar(user.getAvatar());
+        comment.setReplyId(originComment.getUserId());
+        comment.setReplyName(originComment.getUserName());
         comment.setLikes(0);
         comment.setTime(datetime);
         commentMapper.addComment(comment);

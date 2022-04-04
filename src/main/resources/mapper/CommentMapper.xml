@@ -21,7 +21,7 @@
         <selectKey keyProperty="id" order="AFTER" resultType="Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO comment (id, user_id, user_name, avatar, comment_id, content, likes,time)
-        VALUES (#{id},#{userId},#{userName},#{avatar},#{commentId},#{content},#{likes},#{time})
+        INSERT INTO comment (id, user_id, user_name, avatar, comment_id, reply_id, reply_name, content, likes, time)
+        VALUES (#{id},#{userId},#{userName},#{avatar},#{commentId},#{replyId},#{replyName},#{content},#{likes},#{time})
     </insert>
 </mapper>
