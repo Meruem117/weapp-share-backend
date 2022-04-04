@@ -9,16 +9,12 @@
         SELECT *
         FROM comment
         WHERE (user_id = #{userId} OR #{userId} = 0)
+          AND comment_id = #{commentId}
           AND content LIKE concat('%', #{key}, '%')
     </select>
     <select id="getCommentById" resultType="Comment">
         SELECT *
         FROM comment
         WHERE id = #{id}
-    </select>
-    <select id="getCommentListById" resultType="Comment">
-        SELECT *
-        FROM comment
-        WHERE comment_id = #{id}
     </select>
 </mapper>

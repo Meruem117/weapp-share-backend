@@ -27,9 +27,9 @@ public class CommentController {
     }
 
     @GetMapping("/list")
-    public BaseResponse<PageResponse<Comment>> getPages(Integer userId, String key, PageRequest pageRequest) {
+    public BaseResponse<PageResponse<Comment>> getPages(Integer userId, Integer commentId, String key, PageRequest pageRequest) {
         PageHelper.startPage(pageRequest.getPage(), pageRequest.getSize());
-        List<Comment> list = commentService.getPages(userId, key);
+        List<Comment> list = commentService.getPages(userId, commentId, key);
         Long total = ((Page) list).getTotal();
         return ResUtils.success(new PageResponse<>(list, total));
     }
@@ -37,13 +37,5 @@ public class CommentController {
     @GetMapping("/get")
     public BaseResponse<Comment> getCommentById(Integer id) {
         return ResUtils.success(commentService.getCommentById(id));
-    }
-
-    @GetMapping("/comment")
-    public BaseResponse<PageResponse<Comment>> getCommentListById(Integer id, PageRequest pageRequest) {
-        PageHelper.startPage(pageRequest.getPage(), pageRequest.getSize());
-        List<Comment> list = commentService.getCommentListById(id);
-        Long total = ((Page) list).getTotal();
-        return ResUtils.success(new PageResponse<>(list, total));
     }
 }

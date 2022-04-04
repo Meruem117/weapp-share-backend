@@ -19,17 +19,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getPages(Integer userId, String key) {
-        return commentMapper.getPages(userId, key);
+    public List<Comment> getPages(Integer userId, Integer commentId, String key) {
+        return commentMapper.getPages(userId, commentId, key);
     }
 
     @Override
     public Comment getCommentById(Integer id) {
         return commentMapper.getCommentById(id);
-    }
-
-    @Override
-    public List<Comment> getCommentListById(Integer id) {
-        return commentMapper.getCommentListById(id);
     }
 }
