@@ -10,4 +10,6 @@ public interface CommentService {
     List<Comment> getPages(Integer userId, Integer commentId, String key);
 
     Comment getCommentById(Integer id);
+
+    Integer addComment(Comment comment);
 }

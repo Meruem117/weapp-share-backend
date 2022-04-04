@@ -27,4 +27,10 @@ public class CommentServiceImpl implements CommentService {
     public Comment getCommentById(Integer id) {
         return commentMapper.getCommentById(id);
     }
+
+    @Override
+    public Integer addComment(Comment comment) {
+        commentMapper.addComment(comment);
+        return comment.getId();
+    }
 }
