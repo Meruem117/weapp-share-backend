@@ -12,6 +12,7 @@ public class Comment implements Serializable {
     private String userName;
     private String avatar;
     private Integer commentId;
+    private Integer subCommentId;
     private Integer replyId;
     private String replyName;
     private String content;
