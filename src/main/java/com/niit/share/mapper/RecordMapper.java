@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface RecordMapper {
     List<Record> getAll();
+
+    Integer addRecord(Record record);
 }

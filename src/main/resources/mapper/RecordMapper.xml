@@ -5,4 +5,11 @@
         SELECT *
         FROM share.record
     </select>
+    <insert id="addRecord" parameterType="Record">
+        <selectKey keyProperty="id" order="AFTER" resultType="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO record (id, user_id, content, time)
+        VALUES (#{id}, #{userId}, #{content}, #{time})
+    </insert>
 </mapper>

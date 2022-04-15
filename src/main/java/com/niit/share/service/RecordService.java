@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RecordService {
     List<Record> getAll();
+
+    Integer addRecord(Record record);
 }
