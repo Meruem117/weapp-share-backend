@@ -26,6 +26,11 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
+    public Record getRecordById(Integer id) {
+        return recordMapper.getRecordById(id);
+    }
+
+    @Override
     public Integer addRecord(Record record) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String datetime = df.format(new Date());

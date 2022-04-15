@@ -32,6 +32,11 @@ public class RecordController {
         return ResUtils.success(new PageResponse<>(list, total));
     }
 
+    @GetMapping("/get")
+    public BaseResponse<Record> getRecordById(Integer id) {
+        return ResUtils.success(recordService.getRecordById(id));
+    }
+
     @PostMapping("/add")
     public BaseResponse<Integer> addRecord(@RequestBody Record record) {
         return ResUtils.success(recordService.addRecord(record));

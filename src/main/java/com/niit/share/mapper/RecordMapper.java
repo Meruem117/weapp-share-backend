@@ -11,5 +11,7 @@ public interface RecordMapper {
 
     List<Record> getPages(Integer userId, String key);
 
+    Record getRecordById(Integer id);
+
     Integer addRecord(Record record);
 }
