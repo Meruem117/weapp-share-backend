@@ -9,5 +9,7 @@ import java.util.List;
 public interface RecordMapper {
     List<Record> getAll();
 
+    List<Record> getPages(Integer userId, String key);
+
     Integer addRecord(Record record);
 }

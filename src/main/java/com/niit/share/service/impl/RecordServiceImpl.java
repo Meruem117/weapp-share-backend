@@ -21,6 +21,11 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
+    public List<Record> getPages(Integer userId, String key) {
+        return recordMapper.getPages(userId, key);
+    }
+
+    @Override
     public Integer addRecord(Record record) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String datetime = df.format(new Date());

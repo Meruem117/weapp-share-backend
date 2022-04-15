@@ -5,6 +5,7 @@
         SELECT *
         FROM comment
     </select>
+
     <select id="getPages" resultType="Comment">
         SELECT *
         FROM comment
@@ -12,11 +13,13 @@
           AND comment_id = #{commentId}
           AND content LIKE concat('%', #{key}, '%')
     </select>
+
     <select id="getCommentById" resultType="Comment">
         SELECT *
         FROM comment
         WHERE id = #{id}
     </select>
+
     <insert id="addComment" parameterType="Comment">
         <selectKey keyProperty="id" order="AFTER" resultType="Integer">
             SELECT LAST_INSERT_ID()

@@ -5,6 +5,7 @@
         SELECT *
         FROM share.user
     </select>
+
     <select id="getUserById" resultType="User">
         SELECT *
         FROM share.user

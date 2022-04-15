@@ -7,5 +7,7 @@ import java.util.List;
 public interface RecordService {
     List<Record> getAll();
 
+    List<Record> getPages(Integer userId, String key);
+
     Integer addRecord(Record record);
 }

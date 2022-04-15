@@ -5,6 +5,14 @@
         SELECT *
         FROM share.record
     </select>
+
+    <select id="getPages" resultType="Record">
+        SELECT *
+        FROM record
+        WHERE user_id = #{userId}
+          AND content LIKE concat('%', #{key}, '%')
+    </select>
+
     <insert id="addRecord" parameterType="Record">
         <selectKey keyProperty="id" order="AFTER" resultType="Integer">
             SELECT LAST_INSERT_ID()
