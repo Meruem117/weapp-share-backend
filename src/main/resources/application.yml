@@ -5,7 +5,7 @@ spring:
     username: root
     password: abc123
 server:
-  address: 192.168.1.102
+  #  address: 192.168.79.1
   port: 8080
 mybatis:
   mapper-locations: classpath:mapper/*.xml
