@@ -17,17 +17,17 @@ public class SecurityController {
     }
 
     @GetMapping("/home")
-    public String home() {
-        return "home";
+    public ModelAndView home() {
+        return new ModelAndView("home");
     }
 
     @GetMapping("/main")
-    public String main() {
-        return "main";
+    public ModelAndView main() {
+        return new ModelAndView("main");
     }
 
     @GetMapping("/error")
-    public String error() {
-        return "error";
+    public ModelAndView error() {
+        return new ModelAndView("error");
     }
 }
