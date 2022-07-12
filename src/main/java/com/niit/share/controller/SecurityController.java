@@ -26,8 +26,8 @@ public class SecurityController {
         return new ModelAndView("main");
     }
 
-    @GetMapping("/error")
+    @GetMapping("/admin")
     public ModelAndView error() {
-        return new ModelAndView("error");
+        return new ModelAndView("admin");
     }
 }
