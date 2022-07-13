@@ -9,7 +9,7 @@ spring:
     encoding: UTF-8
     prefix: classpath:/templates/
     suffix: .html
-    mode: HTML5
+    mode: HTML
 server:
   #  address: 192.168.79.1
   port: 8080
