@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@RequestMapping("/security")
 @RestController
+@RequestMapping("/security")
 public class SecurityController {
     @GetMapping("/hello")
     public String hello() {
