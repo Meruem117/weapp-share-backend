@@ -10,4 +10,6 @@ public interface UserMapper {
     List<User> getAll();
 
     User getUserById(Integer id);
+
+    User getUserByName(String name);
 }

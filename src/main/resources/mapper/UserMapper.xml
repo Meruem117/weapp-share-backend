@@ -11,4 +11,10 @@
         FROM share.user
         WHERE id = #{id}
     </select>
+
+    <select id="getUserByName" resultType="User">
+        SELECT *
+        FROM share.user
+        WHERE name = #{name}
+    </select>
 </mapper>
