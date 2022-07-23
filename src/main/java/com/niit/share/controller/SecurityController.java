@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SecurityController {
     @GetMapping("/hello")
     public String hello() {
-        return "Hello";
+        return "Hello Security";
     }
 
     @GetMapping("/login")
