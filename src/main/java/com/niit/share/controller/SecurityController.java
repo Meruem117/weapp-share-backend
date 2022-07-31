@@ -3,11 +3,9 @@ package com.niit.share.controller;
 import com.niit.share.base.response.BaseResponse;
 import com.niit.share.utils.ResUtils;
 import com.niit.share.utils.SecurityUtils;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.Map;
