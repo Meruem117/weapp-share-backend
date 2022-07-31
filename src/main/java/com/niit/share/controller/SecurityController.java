@@ -28,20 +28,4 @@ public class SecurityController {
         User user = SecurityUtils.login(params.get("username"), params.get("password"), authenticationManager);
         return ResUtils.success(user);
     }
-
-    @GetMapping("/home")
-    public ModelAndView home() {
-        return new ModelAndView("home");
-    }
-
-    @GetMapping("/main")
-    public ModelAndView main() {
-        return new ModelAndView("main");
-    }
-
-    @GetMapping("/admin")
-    @Secured("ADMIN")
-    public ModelAndView admin() {
-        return new ModelAndView("admin");
-    }
 }
