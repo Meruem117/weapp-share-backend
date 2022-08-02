@@ -2,8 +2,9 @@ package com.niit.share.controller;
 
 import com.niit.share.base.response.BaseResponse;
 import com.niit.share.utils.ResUtils;
-import com.niit.share.utils.SecurityUtils;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +23,12 @@ public class SecurityController {
     }
 
     @PostMapping("/login")
-    public BaseResponse<User> login(@RequestBody Map<String, String> params) {
-        User user = SecurityUtils.login(params.get("username"), params.get("password"), authenticationManager);
-        return ResUtils.success(user);
+    public BaseResponse<String> login(@RequestBody Map<String, String> params) {
+        String username = params.get("username");
+        String password = params.get("password");
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+        Authentication authentication = authenticationManager.authenticate(token);
+        System.out.println(authentication.isAuthenticated());
+        return ResUtils.success("success");
     }
 }
