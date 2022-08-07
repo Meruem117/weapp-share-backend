@@ -8,4 +8,6 @@ public interface UserService {
     List<User> getAll();
 
     User getUserById(Integer id);
+
+    User getUserByName(String name);
 }
