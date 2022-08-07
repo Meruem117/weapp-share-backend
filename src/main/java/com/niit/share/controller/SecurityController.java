@@ -2,6 +2,7 @@ package com.niit.share.controller;
 
 import com.niit.share.base.response.BaseResponse;
 import com.niit.share.entity.User;
+import com.niit.share.service.TokenService;
 import com.niit.share.service.UserService;
 import com.niit.share.utils.ResUtils;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +20,8 @@ public class SecurityController {
     AuthenticationManager authenticationManager;
     @Resource
     private UserService userService;
+    @Resource
+    private TokenService tokenService;
 
     @GetMapping("/hello")
     public String hello() {
@@ -31,11 +34,10 @@ public class SecurityController {
         String password = params.get("password");
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
         Authentication authentication = authenticationManager.authenticate(token);
-        if (authentication.isAuthenticated()) {
-            User user = userService.getUserByName(username);
-            return ResUtils.success(user);
-        } else {
-            return ResUtils.error(400, "User not found");
-        }
+        User user = userService.getUserByName(username);
+        user.setPassword(null);
+        String _token = tokenService.getToken(authentication);
+        System.out.println(_token);
+        return ResUtils.success(user);
     }
 }
