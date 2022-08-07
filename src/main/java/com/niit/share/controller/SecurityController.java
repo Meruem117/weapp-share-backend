@@ -5,7 +5,6 @@ import com.niit.share.utils.ResUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,7 +27,7 @@ public class SecurityController {
         String password = params.get("password");
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
         Authentication authentication = authenticationManager.authenticate(token);
-        System.out.println(authentication.isAuthenticated());
+        System.out.println(authentication);
         return ResUtils.success("success");
     }
 }
